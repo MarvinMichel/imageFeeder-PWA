@@ -1,0 +1,6 @@
+<section class="feed">
+	<% images.map(image => { %>
+		<% const { id, urls: srcset, alt_description: alt, user: { username } } = image %>
+		<%- include('../molecules/image', { id, srcset, alt, username }) %>
+	<% }) %>
+</section>

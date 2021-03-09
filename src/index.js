@@ -1,7 +1,12 @@
+// Modules
+import imagesLoaded from 'imagesloaded'
+import {
+	resizeGridItems,
+	resizeInstance
+} from './modules/resizeGridItems.js'
+
 // Styling
 import './styles/style.css'
 
-// Modules
-import { resizeGridItems } from './modules/resizeGridItems.js'
-
+window.addEventListener('load', resizeGridItems )
 window.addEventListener('resize', resizeGridItems)
