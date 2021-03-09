@@ -1,14 +1,17 @@
 // Set active class to tab based on url
-function setActiveTab(path) {
-  const navListItems = document.querySelectorAll('.main-nav--link')
+function setActiveTab() {
+	const location = document.location
+	const navLinks = document.querySelectorAll('main nav ul li a')
 
-  navListItems.forEach(item => {
-    let tabText = item.textContent.replace('&', '').replace(/\s+/g, '-').toLowerCase()
-    if (path === '') path = 'latest'
-    tabText === path
-      ? item.classList.add('active')
-      : item.classList.remove('active')
-  })
+	navLinks.forEach(link => {
+		if (link.pathname === '/latest' && location.pathname === '/') {
+			link.classList.add('active')
+		}
+
+		if (location.href.indexOf(link.href) >= 0) {
+			link.classList.add('active')
+		}
+	})
 }
 
 export { setActiveTab }

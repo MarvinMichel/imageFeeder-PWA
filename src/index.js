@@ -1,12 +1,12 @@
 // Modules
-import imagesLoaded from 'imagesloaded'
-import {
-	resizeGridItems,
-	resizeInstance
-} from './modules/resizeGridItems.js'
+import { resizeGridItems } from './modules/resizeGridItems.js'
+import { setActiveTab } from './modules/setActiveTab.js'
 
 // Styling
 import './styles/style.css'
 
-window.addEventListener('load', resizeGridItems )
+window.addEventListener('load', () => {
+	resizeGridItems()
+	setActiveTab()
+})
 window.addEventListener('resize', resizeGridItems)

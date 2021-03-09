@@ -195,7 +195,7 @@ nav ul li:active {
   transform: scale(.95)
 }
 
-nav ul li.active {
+nav ul li a.active {
   background: var(--color-secondary);
   color: var(--color-primary);
 }
