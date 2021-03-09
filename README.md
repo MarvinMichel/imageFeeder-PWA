@@ -1,54 +1,64 @@
-# Progressive Web Apps @cmda-minor-web · 20-21
+# ImageFeeder
+![Netlify](https://img.shields.io/netlify/9c15f21c-97df-40fa-af0c-bde691ffc65c?style=plastic)
+![GitHub last commit](https://img.shields.io/github/last-commit/MarvinMichel/imageFeeder?style=plastic)
+![GitHub](https://img.shields.io/github/license/MarvinMichel/imageFeeder?style=plastic)
 
-In this course we will convert the client side web application previously made Web App From Scratch into a server side rendered application. We also add functionalities based on the Service Worker and turn the application into a Progressive Web App. Ultimately we are going to implement a series of optimisations to improve the performance of the application.  
+ImageFeeder is an application build with the [Unsplash API](https://github.com/unsplash/unsplash-js). It shows you a feed of the latest photo's added to Unsplash and their corresponding photographers. You can view the photo's and their details, search for specific photo's trough keywords or just view random pictures. The application uses only vanilla code and no modules or libraries. It's a one-page, client-side rendered, modular web-application.
 
-## Learning goals
-- _You understand the difference between client side and server side rendering and you can apply server side rendering
-in your application_
-- _You understand how a Service Worker works and you can implement it in your application._
-- _You understand how the critical render path works and how you can optimize it for a better runtime and / or perceived performance._
+![ImageFeeder preview](./docs/images/imagefeeder.png)
 
-[Rubric with learning goals](https://icthva.sharepoint.com/:x:/r/sites/FDMCI_EDU__CMD20_21_Minor_Web_5i7j73jt/_layouts/15/Doc.aspx?sourcedoc=%7B276F53A7-2531-4006-8AD2-08C9A82D3A11%7D&file=PWA%202021%20Rubric.xlsx&action=edit&mobileredirect=true&wdPreviousSession=92686bea-446f-40e3-9303-33fa3f832b82&wdOrigin=TEAMS-ELECTRON.teams.undefined)
+## Live Demo
+Check the live demo [here](https://imagefeeder.netlify.app/)
 
-## Program
-
-### Week 1 - Server Side Rendering 📡
-
-Goal: Render web pages server side
-
-[Exercises](https://github.com/cmda-minor-web/progressive-web-apps-2021/blob/master/course/week-1.md)    
-[Server Side Rendering - slides Declan Rek](https://github.com/cmda-minor-web/progressive-web-apps-1920/blob/master/course/cmd-2021-server-side-rendering.pdf)  
+## How to use?
+1. [Download](https://github.com/MarvinMichel/imageFeeder/archive/master.zip) or clone the repo
+2. Open the terminal and navigate into the projects' directory: `cd ./imageFeeder`
+3. Install the dependencies by running `npm install`
+4. Start the development server: `http-server-spa . ./index.html`
 
 
-### Week 2 - Progressive Web App 🚀
+## Unsplash API
+<img src="./docs/images/api-object-preview.png" alt="Preview of object returned by API" width="350px" align="right">
+This project's using the Unsplash API to get the photos and search trough their database with keywords. The API can retrieve a photo object with different attributes. This object can be used to render data to the screen and show it to the user. We can retrieve the url to the image to display it inside a figure. Beneath the image we can show some statistics like the user and the number of likes and downloads. Inside the object we'll retrieve a link to the users' profilepage and create a link to give the photographer a larger podium. 
 
-Goals: Convert application to a Progressive Web App
+You can check out an example of an photo-object [here](docs/object-example.json)
 
-[Exercises](https://github.com/cmda-minor-web/progressive-web-apps-2021/blob/master/course/week-2.md)  
-[Progressive Web Apps - slides Declan Rek](https://github.com/cmda-minor-web/progressive-web-apps-1920/blob/master/course/cmd-2020-progressive-web-apps.pdf)
-
-
-### Week 2 - Critical Rendering Path 📉 
-
-Doel: Optimize the Critical Rendering Path   
-[Exercises](https://github.com/cmda-minor-web/progressive-web-apps-2021/blob/master/course/week-3.md)  
-[Critical Rendering Path - slides Declan Rek](https://github.com/cmda-minor-web/progressive-web-apps-1920/blob/master/course/cmd-2020-critical-rendering-path.pdf)
+>🤓 For more information to use the API, check the [documentation](https://unsplash.com/documentation).
 
 
-<!-- Add a link to your live demo in Github Pages 🌐-->
+## Design System
+The design system applied in this project will be based on the [Atomic Design by Brad Frost](https://bradfrost.com/blog/post/atomic-web-design/). This means the Javascript code will be split into different layers and functions, hereby creating reusable code troughout the application.
 
-<!-- ☝️ replace this description with a description of your own work -->
+## Client-side router
+The application uses client-side routing. I've created the router based on [Will Taylors'](https://www.willtaylor.blog/client-side-routing-in-vanilla-js/) article. With the router, we use the [History API](https://developer.mozilla.org/en-US/docs/Web/API/History_API) so we can use the back and forward buttons of the browser to navigate trough the routes.
 
-<!-- Add a nice image here at the end of the week, showing off your shiny frontend 📸 -->
+## Actor & Interaction Diagram
+1. The main purpose of the application is a simple way for the user to look for photographs. This can be done by searching for keywords or exploration.
+2. The functionalities needed for this:
+    - User can search for keyword(s).
+    - Application is connected to the Unsplash API.
+    - User can switch tabs for different results.
+    - Application can generate modulair HTML.
+    - Application can open modals for photo-details or errors.
+3. The actors needed for those functionalities:
+    - DOM-handlers.
+    - An error handler.
+    - An API-handler.
+    - A client-side router.
+    - Organisms to handle molecules.
+    - Molecules to handle atoms.
+    - Atoms to handle interaction.
+4. The posible user interactions are:
+    - Type a keyword in searchbar to change feed.
+    - Press a navigational tab to change feed.
+    - Use back & forward buttons to navigate trough history.
+    - Click images to open modal with photo-details.
 
-<!-- Maybe a table of contents here? 📚 -->
+### Actor Diagram
+<img src="./docs/images/actor-diagram.png" width="500px">
 
-<!-- How about a section that describes how to install this project? 🤓 -->
+### Interaction Diagram
+<img src="./docs/images/interaction-diagram.png" width="500px">
 
-<!-- ...but how does one use this project? What are its features 🤔 -->
-
-<!-- What external data source is featured in your project and what are its properties 🌠 -->
-
-<!-- Maybe a checklist of done stuff and stuff still on your wishlist? ✅ -->
-
-<!-- How about a license here? 📜 (or is it a licence?) 🤷 -->
+## License
+[MIT License](LICENSE)
