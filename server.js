@@ -7,12 +7,14 @@ const fetch = require('node-fetch')
 const app = express()
 const PORT = 8080
 
-const publicPath = join(__dirname, "..", "public")
+const publicPath = join(__dirname, "public")
 
 app
+  .set('view engine', 'ejs')
+  .set('views', 'components/pages')
   .use(express.urlencoded({ extended: true }))
   .use(express.static(publicPath))
-  // .use('/', require('/routes/index'))
+  .use('/', require('./routes/index'))
   .listen(PORT, () => console.log(`Server started at port ${PORT}`))
 
 async function getImageData(endpoint = 'photos', param) {
@@ -24,7 +26,7 @@ async function getImageData(endpoint = 'photos', param) {
     const response = await fetch(fetchURL)
     let data = await response.json()
     if (endpoint === 'search/photos') data = data.results
-    return data
+    console.log(data)
   } catch (err) {
     console.error(err)
   }

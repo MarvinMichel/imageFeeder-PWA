@@ -36,7 +36,7 @@ h6 {
 }
 
 /**************** Header **********************/
-header {
+.main-header {
   display: flex;
   flex-direction: column;
   font-size: clamp(2em, 8vw, 3em);
@@ -47,7 +47,7 @@ header {
   margin: 0 0 1em;
 }
 
-header::after {
+.main-header::after {
   background: 
     radial-gradient(
       circle, 
@@ -66,11 +66,11 @@ header::after {
   z-index: -1;
 }
 
-header h1 {
+.main-header--title {
   font-size: clamp(1.5em, 5vw, 2em);
 }
 
-header p {
+.main-header--subtitle {
   font-size: .5em;
   font-weight: 300;
   margin: 0 auto;
@@ -78,7 +78,7 @@ header p {
 }
 
 /**************** Searchbar *******************/
-header form {
+.main-header--searchbar {
   align-items: center;
   bottom: -1em;
   display: flex;
@@ -90,12 +90,12 @@ header form {
   width: clamp(18rem, 40vw, 40rem);
 }
 
-header form label {
+.main-header--searchbar__input {
   position: relative;
   width: 100%;
 }
 
-header form label div {
+.main-header--searchbar div {
   color: var(--color-accent);
   pointer-events: none;
   left: 5%;
@@ -108,15 +108,15 @@ header form label div {
     top .3s ease-in-out;
 }
 
-header form label:focus-within div,
-header form label input:not(:placeholder-shown) + div {
+.main-header--searchbar:focus-within div,
+.main-header--searchbar input:not(:placeholder-shown) + div {
   color: var(--color-secondary);
   left: 2%;
   top: -.5em;
 }
 
-header form input,
-header form button {
+.main-header--searchbar input,
+.main-header--searchbar .button {
   appearance: none;
   -moz-appearance: none;
   -webkit-appearance: none;
@@ -132,14 +132,14 @@ header form button {
   padding: .8em 1.5em;
 }
 
-header form input {
+.main-header--searchbar input {
   background: #fff;
   color: var(--color-secondary);
   margin-right: 2%;
   width: 100%;
 }
 
-header form button {
+.main-header--searchbar .button {
   background: var(--color-secondary);
   color: var(--color-primary);
   cursor: pointer;
@@ -149,7 +149,7 @@ header form button {
   transition: transform .1s ease-in-out;
 }
 
-header form button:active {
+.main-header--searchbar .button:active {
   transform: scale(.98);
 }
 
