@@ -40,7 +40,7 @@ module.exports = {
               publicPath: (resourcePath, context) => `${relative(dirname(resourcePath), context)}/`
             }
           },
-          'css-loader',
+          'css-loader?url=false',
           'sass-loader'
         ]
       }

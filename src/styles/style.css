@@ -54,7 +54,7 @@ header::after {
       rgba(0, 0, 0, .5) 0%, 
       rgb(255, 255, 255) 100%
     ),
-    /* url('../images/header.jpg') */
+    url('/images/header.jpg')
     center center / cover no-repeat;
   bottom: 0;
   content: '';
