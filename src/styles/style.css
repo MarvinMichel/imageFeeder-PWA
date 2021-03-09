@@ -35,6 +35,11 @@ h6 {
   margin: 0 auto;
 }
 
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
 /**************** Header **********************/
 .main-header {
   display: flex;
@@ -178,8 +183,12 @@ nav ul li {
   cursor: pointer;
   font-size: .8em;
   margin-right: 1%;
-  padding: .5em 1em;
+  padding: .5em 0;
   white-space: nowrap;
+}
+
+nav ul li a {
+  padding: .5em 1em;
 }
 
 nav ul li:active {

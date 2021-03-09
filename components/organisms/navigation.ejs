@@ -1,0 +1,30 @@
+<%
+	const linkNames = [
+		'Latest',
+		'Popular',
+		'Wallpapers',
+		'People',
+		'Nature',
+		'Architecture',
+		'Current Events',
+		'Business & Work',
+		'Experimental',
+		'Fashion',
+		'Film',
+		'Health',
+		'Interiors',
+		'Street Photography',
+		'Technology',
+		'Travel',
+		'Textures & Patterns',
+		'Animals'
+	]
+%>
+<nav>
+	<ul>
+		<% linkNames.map(linkName => { %>
+		<% const url = linkName.replace('&', '').replace(/\s+/g, '-').toLowerCase() %>
+	 	<li><a href="/<%= url %>"><%= linkName %></a></li>
+		 <% }) %>
+	</ul>
+</nav>

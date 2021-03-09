@@ -4,7 +4,7 @@
   "description": "image feeder from Unsplash API",
   "private": true,
   "scripts": {
-    "prestart": "npm run build",
+    "prestart": "rimraf public/dist && npm run build",
     "start": "nodemon server.js",
     "dev": "webpack serve --config=webpack.config.js",
     "build": "webpack --config=webpack.config.js"
@@ -21,7 +21,8 @@
     "dotenv": "^8.2.0",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
-    "node-fetch": "^2.6.1"
+    "node-fetch": "^2.6.1",
+    "rimraf": "^3.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.13.8",
