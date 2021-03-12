@@ -16,9 +16,4 @@ router.get('/popular', async (req, res) => {
   res.render('index', { images })
 })
 
-router.get('/:topic', async (req, res) => {
-  const images = await getImageData(`topics/${req.params.topic}/photos`)
-  res.render('index', { images })
-})
-
 module.exports = router

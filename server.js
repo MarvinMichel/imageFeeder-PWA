@@ -11,5 +11,7 @@ app
   .set('views', 'components/pages')
   .use(express.urlencoded({ extended: true }))
   .use(express.static(publicPath))
-  .use('/', require('./routes/topics'))
+  .use('/', require('./routes/index'))
+  .use('/', require('./routes/topic'))
+  .use('/search', require('./routes/search'))
   .listen(PORT, () => console.log(`Server started at port ${PORT}`))
