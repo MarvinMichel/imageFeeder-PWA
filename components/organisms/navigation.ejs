@@ -24,7 +24,7 @@
 	<ul>
 		<% linkNames.map(linkName => { %>
 		<% const url = linkName.replace('&', '').replace(/\s+/g, '-').toLowerCase() %>
-	 	<li><a href="/<%= url %>"><%= linkName %></a></li>
+	 	<li><a href="/topics/<%= url %>"><%= linkName %></a></li>
 		 <% }) %>
 	</ul>
 </nav>

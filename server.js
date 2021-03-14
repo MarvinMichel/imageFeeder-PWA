@@ -12,6 +12,6 @@ app
   .use(express.urlencoded({ extended: true }))
   .use(express.static(publicPath))
   .use('/', require('./routes/index'))
-  .use('/', require('./routes/topic'))
+  .use('/topics', require('./routes/topics'))
   .use('/search', require('./routes/search'))
   .listen(PORT, () => console.log(`Server started at port ${PORT}`))
