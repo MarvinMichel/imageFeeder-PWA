@@ -1,5 +1,3 @@
-import Error from '../components/organisms/Error.js'
-
 import { main } from '../index.js'
 
 async function getImageData(endpoint = 'photos', param) {
