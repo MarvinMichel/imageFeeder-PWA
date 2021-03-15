@@ -5,7 +5,6 @@ function setActiveTab() {
 
 	navLinks.forEach(link => {
     if (link.pathname === '/topics/latest' && location.pathname === '/') {
-      console.log(link.pathname)
 			link.classList.add('active')
 		}
 
