@@ -6,7 +6,8 @@ import { setActiveTab } from './modules/setActiveTab.js'
 import './styles/style.css'
 
 window.addEventListener('load', () => {
-	resizeGridItems()
-	setActiveTab()
+  setActiveTab()
+  resizeGridItems()
 })
+
 window.addEventListener('resize', resizeGridItems)

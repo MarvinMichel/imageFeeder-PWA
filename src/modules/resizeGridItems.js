@@ -1,3 +1,5 @@
+import imagesLoaded from 'imagesloaded'
+
 function resizeGridItem(item) {
   /**
    * Resize grid-item's height based rowHeight
@@ -6,7 +8,7 @@ function resizeGridItem(item) {
   const grid = document.querySelector('.feed')
   const rowHeight = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-auto-rows'))
   const rowGap = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-row-gap'))
-  const itemHeight = item.getBoundingClientRect().height
+  const itemHeight = item.querySelector('.feed--image__photo').getBoundingClientRect().height
   const rowSpan = Math.ceil((itemHeight + rowGap) / (rowHeight + rowGap))
   item.style.gridRowEnd = `span ${rowSpan}`
 }
@@ -15,7 +17,7 @@ function resizeGridItem(item) {
 function resizeGridItems() {
   const gridCells = document.querySelectorAll('.feed--image')
   gridCells.forEach(gridCell => {
-    resizeGridItem(gridCell)
+    imagesLoaded(gridCell, resizeInstance)
   })
 }
 
