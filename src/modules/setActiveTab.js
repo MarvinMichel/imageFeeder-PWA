@@ -4,7 +4,8 @@ function setActiveTab() {
 	const navLinks = document.querySelectorAll('main nav ul li a')
 
 	navLinks.forEach(link => {
-		if (link.pathname === '/latest' && location.pathname === '/') {
+    if (link.pathname === '/topics/latest' && location.pathname === '/') {
+      console.log(link.pathname)
 			link.classList.add('active')
 		}
 
