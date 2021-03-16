@@ -1,26 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="robots" content="index">
-	<meta name="author" content="Marvin Sernee">
-	<meta name="description" content="Modular Web-App build with vanilla Javascript">
-	<meta name="keywords" content="API, Web-App, PWA, Unsplash, images, feed, search">
-	<meta name="theme-color" content="#ffffff">
-  <meta name="apple-mobile-web-app-title" content="ImageFeeder">
-  <meta name="application-name" content="ImageFeeder">
-  <link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
-  <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
-  <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
-  <link rel="manifest" href="/site.webmanifest">
-	<link rel="preconnect" href="https://fonts.gstatic.com">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&amp;display=swap">
-	<link rel="stylesheet" href="https://css.gg/css?=&amp;heart&amp;search&amp;software-download&amp;user">
-	<link rel="stylesheet" href="/dist/main.min.css">
-	<script type="module" src="/dist/main.min.js"></script>
-	<title>ImageFeeder</title>
-</head>
+<%- include('../partials/head', { title: 'Feed' }) %>
 <body>
 	<%- include('../organisms/header') %>
 	<main>
