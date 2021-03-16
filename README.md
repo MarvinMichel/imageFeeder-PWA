@@ -3,7 +3,7 @@
 ![GitHub last commit](https://img.shields.io/github/last-commit/MarvinMichel/imageFeeder?style=plastic)
 ![GitHub](https://img.shields.io/github/license/MarvinMichel/imageFeeder?style=plastic)
 
-ImageFeeder is an application build with the [Unsplash API](https://github.com/unsplash/unsplash-js). It shows you a feed of the latest photo's added to Unsplash and their corresponding photographers. You can view the photo's and their details, search for specific photo's trough keywords or just view random pictures. The application uses only vanilla code and no modules or libraries. It's a one-page, client-side rendered, modular web-application.
+ImageFeeder is an application build with the [Unsplash API](https://github.com/unsplash/unsplash-js). It shows you a feed of the latest photo's added to Unsplash and their corresponding photographers. You can view the photo's and their details, search for specific photo's trough keywords or just view random pictures. The application uses server-side rendering by NodeJS and Express. It's an Progressive Web Application and can be cached and installed locally.
 
 ![ImageFeeder preview](./docs/images/imagefeeder.png)
 
