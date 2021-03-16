@@ -1,0 +1,15 @@
+{
+    "name": "ImageFeeder",
+    "short_name": "ImageFeeder",
+    "icons": [
+        {
+            "src": "/images/android-chrome-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#181e24",
+    "background_color": "#eeeeee",
+    "display": "standalone",
+    "start_url": "/"
+}

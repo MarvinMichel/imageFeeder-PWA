@@ -200,12 +200,6 @@ nav ul li a.active {
   color: var(--color-primary);
 }
 
-/************ Content Container ***************/
-#content {
-  height: 100%;
-  width: 100vw;
-}
-
 /************** Feed Section ******************/
 .feed {
   display: grid;
@@ -221,11 +215,16 @@ nav ul li a.active {
   width: 80%;
 }
 
+@supports (grid-template-rows: masonry) {
+  .feed {
+    grid-template-rows: masonry;
+  }
+}
+
 .feed--image {
   box-shadow: 
     -3px -3px 5px #ffffff20,
     3px 3px 5px #00000020;
-  cursor: pointer;
   height: max-content;
   overflow: hidden;
   position: relative;
@@ -251,6 +250,16 @@ nav ul li a.active {
 
 .feed--image:hover .feed--image__description {
   transform: translateY(11%);
+}
+
+.feed--image__link {
+  bottom: 0;
+  color: transparent;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  text-decoration: none;
 }
 
 /**************** Modals **********************/
