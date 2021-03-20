@@ -7,7 +7,9 @@
     "prestart": "rimraf public/dist && npm run build",
     "start": "nodemon server.js",
     "dev": "webpack serve --config=webpack.config.js",
-    "build": "webpack --config=webpack.config.js"
+    "build:html": "node scripts/build-static-html.js",
+    "prebuild": "rimraf public/dist",
+    "build": "webpack --config=webpack.config.js && npm run build:html"
   },
   "keywords": [
     "Unsplash",
