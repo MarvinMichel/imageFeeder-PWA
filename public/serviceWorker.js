@@ -1,4 +1,4 @@
-const CORE_CACHE_VERSION = 'v4'
+const CORE_CACHE_VERSION = 'v6'
 const CORE_ASSETS = [
   '/dist/main.min.js',
   '/dist/main.min.css',
@@ -31,9 +31,11 @@ self.addEventListener('fetch', event => {
   } else if (isHTMLRequest(request)) {
     event.respondWith(
       caches.open('html-cache')
-        .then(cache => cache.match(request))
+        .then(cache => cache.match(request.url))
         .then(response => {
-          response ? response : fetchAndCache(request, 'html-cache')
+          return response
+            ? response
+            : fetchAndCache(request, 'html-cache')
         })
         .catch(() => {
           return caches.open(CORE_CACHE_VERSION)
@@ -55,24 +57,9 @@ function fetchAndCache(request, cacheName) {
       if (!response.ok) throw Error(`${request.url} not found in cache`)
 
       const clone = response.clone()
-      caches.open(cacheName)
-        .then((cache) => cache.put(request, clone))
-
-      return response
-    })
-}
-
-/**
- * Fetches data from cache when available
- * @param {Object} request request from fetch event
- * @returns response from request
- */
-function fetchFromCache(request) {
-  return cache.match(request)
-    .then(response => {
-      if (!response) {
-        throw Error(`${request.url} not found in cache`)
-      }
+      caches.open(cacheName).then((cache) => {
+        cache.put(request, clone)
+      })
       return response
     })
 }

@@ -7,6 +7,9 @@ const { join } = require('path')
 const fsPromises = fs.promises
 dotenv.config()
 
+buildHome()
+buildTopics()
+
 async function getImageData(endpoint = 'photos', param) {
   const apiURL = process.env.API_URL
   const apiKey = process.env.API_KEY
@@ -22,7 +25,7 @@ async function getImageData(endpoint = 'photos', param) {
   }
 }
 
-(async function buildHome() {
+async function buildHome() {
   const images = await getImageData()
   const renderData = {
     title: 'Feed',
@@ -31,7 +34,50 @@ async function getImageData(endpoint = 'photos', param) {
 
   const html = renderHTML('./components/pages/index.ejs', renderData)
   createFile('./public', 'index.html', html)
-})()
+}
+
+function buildTopics() {
+  const topics = [
+		'Animals',
+		'Architecture',
+		'Business & Work',
+		'Current Events',
+		'Experimental',
+		'Fashion',
+		'Film',
+		'Health',
+    'Interiors',
+    'Latest',
+		'Nature',
+    'People',
+    'Popular',
+		'Street Photography',
+		'Technology',
+		'Textures & Patterns',
+		'Travel',
+		'Wallpapers'
+  ]
+
+  topics.map(async (topic) => {
+    topic = topic.replace('&', '').replace(/\s+/g, '-').toLowerCase()
+    let images
+
+    if (topic === 'latest') {
+      images = await getImageData()
+    } else if (topic === 'popular') {
+      images = await getImageData('photos', '&order_by=popular')
+    } else {
+      images = await getImageData(`topics/${topic}/photos`)
+    }
+    const renderData = {
+      title: 'Feed',
+      images: images
+    }
+
+    const html = renderHTML('./components/pages/index.ejs', renderData)
+    createFile('./public', `${topic}.html`, html)
+  })
+}
 
 /**
  * @param {String} path relative path to view template
