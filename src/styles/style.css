@@ -386,6 +386,14 @@ nav ul li a.active {
 	animation-delay: 0.25s;
 }
 
+/**************** Offline **********************/
+.offline-message {
+  align-items: center;
+  display: flex;
+  height: 10em;
+  justify-content: center;
+}
+
 /**************** Animations ******************/
 @keyframes moveCircle {
 	0%,

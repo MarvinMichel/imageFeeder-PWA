@@ -16,4 +16,5 @@ app
   .use('/topics', require('./routes/topics'))
   .use('/search', require('./routes/search'))
   .use('/photos', require('./routes/photos'))
+  .use('/offline', require('./routes/offline'))
   .listen(PORT, () => console.log(`Server started at port ${PORT}`))

@@ -1,4 +1,4 @@
-const CORE_CACHE_VERSION = 'v1'
+const CORE_CACHE_VERSION = 'v4'
 const CORE_ASSETS = [
   '/dist/main.min.js',
   '/dist/main.min.css',
@@ -6,30 +6,80 @@ const CORE_ASSETS = [
   '/images/android-chrome-512x512.png',
   '/images/apple-touch-icon.png',
   '/images/safari-pinned-tab.svg',
-  '/images/header.jpg'
+  '/images/header.jpg',
+  'site.webmanifest',
+  '/offline',
+  '/'
 ]
 
 self.addEventListener('install', event => {
   event.waitUntil(
-    caches
-      .open(CORE_CACHE_VERSION)
+    caches.open(CORE_CACHE_VERSION)
       .then(cache => cache.addAll(CORE_ASSETS))
       .then(() => self.skipWaiting())
   )
 })
 
 self.addEventListener('fetch', event => {
-  if (isCoreRequest(event.request)) {
-    event.resondWith(
+  const request = event.request
+
+  if (isCoreRequest(request)) {
+    event.respondWith(
       caches.open(CORE_CACHE_VERSION)
-      .then(cache => cache.match(event.request.url))
+        .then(cache => cache.match(request.url))
+    )
+  } else if (isHTMLRequest(request)) {
+    event.respondWith(
+      caches.open('html-cache')
+        .then(cache => cache.match(request))
+        .then(response => {
+          response ? response : fetchAndCache(request, 'html-cache')
+        })
+        .catch(() => {
+          return caches.open(CORE_CACHE_VERSION)
+            .then(cache => cache.match('/offline'))
+        })
     )
   }
 })
 
 /**
- * 
- * @param {Object} request
+ * Add a new object to the cache stack
+ * @param {Object} request request from fetch event
+ * @param {String} cacheName name of cache object
+ * @returns repsone from request
+ */
+function fetchAndCache(request, cacheName) {
+  return fetch(request)
+    .then(response => {
+      if (!response.ok) throw Error(`${request.url} not found in cache`)
+
+      const clone = response.clone()
+      caches.open(cacheName)
+        .then((cache) => cache.put(request, clone))
+
+      return response
+    })
+}
+
+/**
+ * Fetches data from cache when available
+ * @param {Object} request request from fetch event
+ * @returns response from request
+ */
+function fetchFromCache(request) {
+  return cache.match(request)
+    .then(response => {
+      if (!response) {
+        throw Error(`${request.url} not found in cache`)
+      }
+      return response
+    })
+}
+
+/**
+ * Check if request is a core asset element
+ * @param {Object} request request from fetch event
  * @returns {Boolean} checks if requesting core asset(s)
  */
 function isCoreRequest(request) {
@@ -39,9 +89,21 @@ function isCoreRequest(request) {
 }
 
 /**
+ * Checks if request is an HTML-request
+ * @param {Object} request request from fetch event
+ * @returns {Boolean}
+ */
+function isHTMLRequest(request) {
+  const acceptHeader = request.headers.get('accept')
+  return request.method === 'GET'
+    && acceptHeader !== null
+    && acceptHeader.indexOf('text/html') !== -1
+}
+
+/**
  * 
  * @param {Object} requestURL
- * @returns {String} relative URL
+ * @returns {String} relative pathname to URL
  */
 function getPathname(requestURL) {
   const url = new URL(requestURL)
