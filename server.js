@@ -1,4 +1,5 @@
 const express = require('express')
+const compression = require('compression')
 const { join } = require('path')
 
 const app = express()
@@ -12,6 +13,7 @@ app
   .set('views', 'components/pages')
   .use(urlencoded({ extended: true }))
   .use(static(publicPath))
+  .use(compression())
   .use('/', require('./routes/index'))
   .use('/topics', require('./routes/topics'))
   .use('/search', require('./routes/search'))
