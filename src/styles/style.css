@@ -149,6 +149,7 @@ a {
   color: var(--color-primary);
   cursor: pointer;
   height: 100%;
+  padding: .8em 1em;
   position: absolute;
   right: 0;
   transition: transform .1s ease-in-out;
@@ -156,6 +157,20 @@ a {
 
 .main-header--searchbar .button:active {
   transform: scale(.98);
+}
+
+.main-header--searchbar .button svg {
+  fill: none;
+  stroke: var(--color-primary);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.5;
+  width: 1.5em;
+}
+
+.main-header--searchbar .button svg path {
+  fill: none;
+  stroke: none;
 }
 
 /**************** Topic Nav *******************/
@@ -230,13 +245,10 @@ nav ul li a.active {
   position: relative;
 }
 
-.feed--image,
-.feed--image * {
-  width: 100%;
-}
-
-.feed--image__photo img {
+.feed--image__photo {
   display: block;
+  height: auto;
+  width: 100%;
 }
 
 .feed--image__description {

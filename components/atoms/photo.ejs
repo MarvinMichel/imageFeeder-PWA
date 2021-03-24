@@ -1,7 +1,27 @@
-<picture class="<%= baseClassName %>--image__photo">
-	<source 
-	  media="(min-width: 1600px)"
-	  srcset="<%= srcset.regular %>"
-	>
-	<img src="<%= srcset.small %>" alt="<%= alt %>" id="<%= id %>" loading="lazy" />
-</picture>
+<% if (index < 6) { %>
+  <img
+    class="<%= baseClassName %>--image__photo lazyload"
+    id="<%= id %>"
+    alt="<%= alt %>"
+    src="<%= srcset.full %>&w=20&auto=format&fit=clip"
+    data-src="<%= srcset.full %>&w=400&auto=format&fit=clip"
+    data-srcset="
+      <%= srcset.full %>&w=400&auto=format&fit=clip 400w,
+      <%= srcset.full %>&w=600&auto=format&fit=clip 600w,
+      <%= srcset.full %>&w=800&auto=format&fit=clip 800w
+    "
+  />
+<% } else { %>
+  <img
+    class="<%= baseClassName %>--image__photo lazyload"
+    id="<%= id %>"
+    alt="<%= alt %>"
+    src="<%= srcset.full %>&w=20&auto=format&fit=clip"
+    data-src="<%= srcset.full %>&w=400&auto=format&fit=clip"
+    data-srcset="
+      <%= srcset.full %>&w=400&auto=format&fit=clip 400w,
+      <%= srcset.full %>&w=600&auto=format&fit=clip 600w,
+      <%= srcset.full %>&w=800&auto=format&fit=clip 800w
+    "
+  />
+<% } %>

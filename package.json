@@ -6,7 +6,6 @@
   "scripts": {
     "prestart": "npm run build",
     "start": "nodemon server.js",
-    "dev": "webpack serve --config=webpack.config.js",
     "build:html": "node scripts/build-static-html.js",
     "prebuild": "rimraf public/dist",
     "build": "webpack --config=webpack.config.js && npm run build:html"
@@ -25,6 +24,7 @@
     "ejs": "^3.1.6",
     "express": "^4.17.1",
     "imagesloaded": "^4.1.4",
+    "lazysizes": "^5.3.0",
     "node-fetch": "^2.6.1",
     "rimraf": "^3.0.2"
   },
