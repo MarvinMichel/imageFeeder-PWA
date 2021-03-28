@@ -4,8 +4,7 @@
   "description": "image feeder from Unsplash API",
   "private": true,
   "scripts": {
-    "prestart": "npm run build",
-    "start": "nodemon server.js",
+    "start": "node server.js",
     "build:html": "node scripts/build-static-html.js",
     "prebuild": "rimraf public/dist",
     "build": "webpack --config=webpack.config.js && npm run build:html"
