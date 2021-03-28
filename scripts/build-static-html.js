@@ -9,6 +9,7 @@ dotenv.config()
 
 buildHome()
 buildTopics()
+build404()
 
 async function getImageData(endpoint = 'photos', param) {
   const apiURL = process.env.API_URL
@@ -77,6 +78,15 @@ function buildTopics() {
     const html = renderHTML('./components/pages/index.ejs', renderData)
     createFile('./public', `${topic}.html`, html)
   })
+}
+
+async function build404() {
+  const renderData = {
+    title: 'Sorry!'
+  }
+
+  const html = renderHTML('./components/pages/404.ejs', renderData)
+  createFile('./public', '404.html', html)
 }
 
 /**
