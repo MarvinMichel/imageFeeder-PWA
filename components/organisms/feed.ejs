@@ -1,7 +1,8 @@
 <section class="feed">
 	<% images.map((image, index) => {
-    const baseClassName = "feed" 
+    const baseClassName = "feed"
+    const lazyLoad = index >= 6
   %>
-		<%- include('../molecules/image', { image, baseClassName, index }) %>
+		<%- include('../molecules/image', { image, baseClassName, lazyLoad }) %>
 	<% }) %>
 </section>

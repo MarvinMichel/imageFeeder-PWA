@@ -16,7 +16,7 @@
 html {
   background: var(--color-primary);
   color: var(--color-secondary);
-  font-family: 'Quicksand', Verdana, sans-serif;
+  font-family: 'Quicksand', 'Open Sans', 'Helvetica Neue', sans-serif;
   font-smooth: always;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
@@ -217,7 +217,7 @@ nav ul li a.active {
 
 /************** Feed Section ******************/
 .feed {
-  display: grid;
+  display: none;
   grid-auto-rows: 5px;
   grid-column-gap: 2rem;
   grid-row-gap: 1.5rem;
@@ -228,6 +228,10 @@ nav ul li a.active {
   justify-content: center;
   margin: 0 auto;
   width: 80%;
+}
+
+.feed.loaded {
+  display: grid;
 }
 
 @supports (grid-template-rows: masonry) {

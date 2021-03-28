@@ -1,6 +1,8 @@
 <figure class="feed--image">
-  <% const { id, urls: srcset, alt_description: alt, user: { username }, width, height } = image %>
-	<%- include('../atoms/photo', { id, srcset, alt, width, height, index }) %>
-	<%- include('../atoms/description', { username }) %>
-	<%- include('../atoms/photo-link', { id }) %>
+  <div class="content-wrapper">
+    <% const { id, urls: srcset, alt_description: alt, user: { username } } = image %>
+    <%- include('../atoms/photo', { id, srcset, alt, lazyLoad }) %>
+    <%- include('../atoms/description', { username }) %>
+    <%- include('../atoms/photo-link', { id }) %>
+  </div>
 </figure>
