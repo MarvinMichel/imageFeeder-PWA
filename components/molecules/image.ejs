@@ -1,8 +1,15 @@
-<figure class="feed--image">
+<figure class="<%= baseClassName %>--image">
   <div class="content-wrapper">
-    <% const { id, urls: srcset, alt_description: alt, user: { username } } = image %>
-    <%- include('../atoms/photo', { id, srcset, alt, lazyLoad }) %>
-    <%- include('../atoms/description', { username }) %>
-    <%- include('../atoms/photo-link', { id }) %>
+    <% if (baseClassName === "feed") {
+      const { id, urls: srcset, alt_description: alt, user: { username } } = image 
+    %>
+      <%- include('../atoms/photo', { id, srcset, alt }) %>
+      <%- include('../atoms/description', { username }) %>
+      <%- include('../atoms/photo-link', { id }) %>
+    <% } else { 
+      const { id, urls:srcset, alt_description: alt, user: { name, links: { html } }, likes, downloads } = image
+    %>
+      <%- include('../atoms/photo', { id, srcset, alt, name, html, likes, downloads }) %>
+    <% } %>
   </div>
 </figure>

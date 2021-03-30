@@ -1,7 +1,4 @@
 <section class="detail">
-  <%
-    const { id, urls:srcset, alt_description: alt, user: { username } } = image
-    const baseClassName = "detail"
-  %>
-  <%- include('../molecules/image', { id, srcset, alt, username, baseClassName }) %>
+  <% const baseClassName = "detail" %>
+  <%- include('../molecules/image', { image, baseClassName }) %>
 </section>

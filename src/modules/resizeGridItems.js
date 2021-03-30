@@ -19,7 +19,6 @@ function resizeGridItem(item) {
 function resizeGridItems() {
   gridCells.forEach(gridCell => {
     imagesLoaded(gridCell, resizeInstance)
-    grid.classList.add('loaded')
   })
 }
 
@@ -29,4 +28,4 @@ function resizeInstance(instance) {
   resizeGridItem(item)
 }
 
-export { resizeGridItems, resizeInstance }
+export { resizeGridItems }

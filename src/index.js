@@ -14,32 +14,36 @@ import './styles/style.css'
 //   }
 // })
 
-window.addEventListener('DOMContentLoaded', () => {
-  if (document.querySelector('.feed')) {
+const masonrySupported = ('CSS' in window && window.CSS.supports('grid-template-rows', 'masonry'))
+
+document.addEventListener('DOMContentLoaded', () => {
+  if (!masonrySupported && document.querySelector('.feed')) {
+    resizeGridItems()
     setActiveTab()
+    window.addEventListener('resize', resizeGridItems)
+  }
+})
 
-    if ('CSS' in window && !window.CSS.supports('grid-template-rows', 'masonry')) {
-      resizeGridItems()
-      window.addEventListener('resize', resizeGridItems)
-    }
-
-    // Lazyload images in feed
-    if ('IntersectionObserver' in window) {
-      const lazyloadImages = document.querySelectorAll('.lazy')
-      const imageObserver = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const image = entry.target
-            image.src = image.dataset.src
-            image.classList.remove('lazy')
-            imageObserver.unobserve(image)
-          }
-        })
+window.addEventListener('load', () => {
+  // Lazyload images
+  if ('IntersectionObserver' in window) {
+    const lazyloadImages = document.querySelectorAll('.lazy')
+    
+    const imageObserver = new IntersectionObserver(entries => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          console.log(index, 'Is intersecting with viewport')
+          const image = entry.target
+          image.src = image.dataset.src
+          image.srcset = image.dataset.srcset
+          image.classList.remove('lazy')
+          imageObserver.unobserve(image)
+        }
       })
+    })
 
-      lazyloadImages.forEach(image => {
-        imageObserver.observe(image)
-      })
-    }
+    lazyloadImages.forEach(image => {
+      imageObserver.observe(image)
+    })
   }
 })
