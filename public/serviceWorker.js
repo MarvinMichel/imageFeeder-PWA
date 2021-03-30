@@ -12,6 +12,9 @@ const CORE_ASSETS = [
   '/'
 ]
 
+/**
+ * Setup resources and offline caches
+ */
 self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(CORE_CACHE_VERSION)
@@ -20,6 +23,20 @@ self.addEventListener('install', event => {
   )
 })
 
+/**
+ * Finish the setup or clean up old workers
+ */
+self.addEventListener('activate', event => {
+  event.waitUntil(
+    clients.claim()
+  )
+})
+
+/**
+ * Functional event to fetch cached resources
+ * @uses isCoreRequest
+ * @uses isHTMLRequest
+ */
 self.addEventListener('fetch', event => {
   const request = event.request
 
@@ -88,7 +105,7 @@ function isHTMLRequest(request) {
 }
 
 /**
- * 
+ * Get pathname from request URL
  * @param {Object} requestURL
  * @returns {String} relative pathname to URL
  */
