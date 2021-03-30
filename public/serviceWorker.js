@@ -1,4 +1,4 @@
-const CORE_CACHE_VERSION = 'v6'
+const CORE_CACHE_VERSION = 'v6.2.1'
 const CORE_ASSETS = [
   '/dist/main.min.js',
   '/dist/main.min.css',
@@ -6,7 +6,9 @@ const CORE_ASSETS = [
   '/images/android-chrome-512x512.png',
   '/images/apple-touch-icon.png',
   '/images/safari-pinned-tab.svg',
-  '/images/header.jpg',
+  '/images/header-s.jpg',
+  '/images/header-m.jpg',
+  '/images/header-l.jpg',
   'site.webmanifest',
   '/offline',
   '/'

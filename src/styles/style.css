@@ -59,7 +59,7 @@ a {
       rgba(0, 0, 0, .5) 0%, 
       rgb(255, 255, 255) 100%
     ),
-    url('/images/header.jpg')
+    url('/images/header-s.jpg')
     center center / cover no-repeat;
   bottom: 0;
   content: '';
@@ -69,6 +69,32 @@ a {
   right: 0;
   top: 0;
   z-index: -1;
+}
+
+@media only screen and (min-width: 25rem) {
+  .main-header::after {
+    background: 
+      radial-gradient(
+        circle, 
+        rgba(0, 0, 0, .5) 0%, 
+        rgb(255, 255, 255) 100%
+      ),
+      url('/images/header-m.jpg')
+      center center / cover no-repeat;
+  }
+}
+
+@media only screen and (min-width: 50rem) {
+  .main-header::after {
+    background: 
+      radial-gradient(
+        circle, 
+        rgba(0, 0, 0, .5) 0%, 
+        rgb(255, 255, 255) 100%
+      ),
+      url('/images/header-l.jpg')
+      center center / cover no-repeat;
+  }
 }
 
 .main-header--title {
