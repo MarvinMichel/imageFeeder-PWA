@@ -8,7 +8,10 @@ ImageFeeder is an application build with the [Unsplash API](https://github.com/u
 ![ImageFeeder preview](./docs/images/imagefeeder.png)
 
 ## Live Demo
-Check the live demo [here](https://imagefeeder.netlify.app/)
+Check the live demo [here](https://image-feeder-pwa.herokuapp.com/)
+
+![qrcode_image-feeder-pwa herokuapp com](https://user-images.githubusercontent.com/25977763/113044763-544b1880-919e-11eb-8395-2ad2cd44228d.png)
+
 
 ## How to use?
 1. [Download](https://github.com/MarvinMichel/imageFeeder/archive/master.zip) or clone the repo
@@ -29,8 +32,8 @@ You can check out an example of an photo-object [here](docs/object-example.json)
 ## Design System
 The design system applied in this project will be based on the [Atomic Design by Brad Frost](https://bradfrost.com/blog/post/atomic-web-design/). This means the Javascript code will be split into different layers and functions, hereby creating reusable code troughout the application.
 
-## Server-side router
-
+## Performance
+To maximize the performance of the application, we use lazyloading for images in combination with Low Quality Image Placeholders(LQIP). The Unsplash API offers dynamic image sizes, which the app uses to create responsive images. The app uses server side compression to scale down the transfer sizes as well. By using the caching abilities of our service-worker, the app will become faster to use after a while!
 
 ## License
 [MIT License](LICENSE)
