@@ -2,6 +2,12 @@ require('dotenv').config()
 
 const fetch = require('node-fetch')
 
+/**
+ * Fetches image data from API
+ * @param {String} endpoint endpoint from fetch URL
+ * @param {String} param parameters and queries from fetch
+ * @returns JSON data from images
+ */
 module.exports = {
 	getImageData: async function (endpoint = 'photos', param) {
 		const apiURL = process.env.API_URL

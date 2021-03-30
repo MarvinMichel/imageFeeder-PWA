@@ -23,12 +23,12 @@ window.addEventListener('DOMContentLoaded', () => {
       window.addEventListener('resize', resizeGridItems)
     }
 
+    // Lazyload images in feed
     if ('IntersectionObserver' in window) {
       const lazyloadImages = document.querySelectorAll('.lazy')
       const imageObserver = new IntersectionObserver(entries => {
-        entries.forEach((entry, index) => {
+        entries.forEach(entry => {
           if (entry.isIntersecting) {
-            console.log(index, ': I\'m into the viewport!')
             const image = entry.target
             image.src = image.dataset.src
             image.classList.remove('lazy')
