@@ -7,7 +7,8 @@
     "prestart": "npm run build",
     "start": "node server.js",
     "prebuild": "rimraf public/dist",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "heroku-postbuild": "webpack --mode production"
   },
   "keywords": [
     "Unsplash",
