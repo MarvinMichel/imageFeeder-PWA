@@ -4,11 +4,9 @@
   "description": "image feeder from Unsplash API",
   "private": true,
   "scripts": {
-    "prestart": "npm run build",
     "start": "node server.js",
     "prebuild": "rimraf public/dist",
-    "build": "webpack --mode production",
-    "heroku-postbuild": "webpack --mode production"
+    "build": "webpack --mode production"
   },
   "keywords": [
     "Unsplash",
@@ -25,9 +23,7 @@
     "express": "^4.17.1",
     "imagesloaded": "^4.1.4",
     "node-fetch": "^2.6.1",
-    "rimraf": "^3.0.2",
-    "webpack": "^5.24.4",
-    "webpack-cli": "^4.5.0"
+    "rimraf": "^3.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.13.8",
@@ -38,6 +34,8 @@
     "mini-css-extract-plugin": "^1.3.9",
     "node-sass": "^5.0.0",
     "sass-loader": "^11.0.1",
+    "webpack": "^5.24.4",
+    "webpack-cli": "^4.5.0",
     "webpack-dev-server": "^3.11.2"
   }
 }
