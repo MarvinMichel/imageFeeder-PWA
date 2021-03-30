@@ -5,14 +5,14 @@ import { setActiveTab } from './modules/setActiveTab.js'
 // Styling
 import './styles/style.css'
 
-// window.addEventListener('load', () => {
-//   if ('serviceWorker' in navigator) {
-//     navigator.serviceWorker
-//       .register('/serviceWorker.js', { scope: '/' })
-//       .then(res => console.info('service worker registered at', res.scope))
-//       .catch(err => console.err('service worker not registered', err))
-//   }
-// })
+window.addEventListener('load', () => {
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker
+      .register('/serviceWorker.js', { scope: '/' })
+      .then(res => console.info('service worker registered at', res.scope))
+      .catch(err => console.err('service worker not registered', err))
+  }
+})
 
 const masonrySupported = ('CSS' in window && window.CSS.supports('grid-template-rows', 'masonry'))
 
@@ -30,9 +30,8 @@ window.addEventListener('load', () => {
     const lazyloadImages = document.querySelectorAll('.lazy')
     
     const imageObserver = new IntersectionObserver(entries => {
-      entries.forEach((entry, index) => {
+      entries.forEach(entry => {
         if (entry.isIntersecting) {
-          console.log(index, 'Is intersecting with viewport')
           const image = entry.target
           image.src = image.dataset.src
           image.srcset = image.dataset.srcset

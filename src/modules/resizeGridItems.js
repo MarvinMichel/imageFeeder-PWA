@@ -2,6 +2,7 @@ import imagesLoaded from 'imagesloaded'
 
 const grid = document.querySelector('.feed')
 const gridCells = document.querySelectorAll('.feed--image')
+const loadingElement = document.querySelector('.loading-state')
 
 /**
  * Dynamically set row-span from image container
@@ -20,6 +21,8 @@ function resizeGridItems() {
   gridCells.forEach(gridCell => {
     imagesLoaded(gridCell, resizeInstance)
   })
+  loadingElement.remove()
+  grid.classList.remove('loading')
 }
 
 // Resize grid item after image is fully loaded
