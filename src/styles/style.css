@@ -217,7 +217,7 @@ nav ul li a.active {
 
 /************** Feed Section ******************/
 .feed {
-  display: none;
+  display: grid;
   grid-auto-rows: 5px;
   grid-column-gap: 2rem;
   grid-row-gap: 1.5rem;
@@ -227,11 +227,15 @@ nav ul li a.active {
   );
   justify-content: center;
   margin: 0 auto;
+  opacity: 0;
+  transform: translateY(200%);
+  transition: opacity .3s ease-in;
   width: 80%;
 }
 
 .feed.loaded {
-  display: grid;
+  opacity: 1;
+  transform: translateY(0);
 }
 
 @supports (grid-template-rows: masonry) {
