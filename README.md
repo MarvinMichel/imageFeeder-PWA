@@ -1,7 +1,7 @@
 # ImageFeeder
-![Netlify](https://img.shields.io/netlify/9c15f21c-97df-40fa-af0c-bde691ffc65c?style=plastic)
-![GitHub last commit](https://img.shields.io/github/last-commit/MarvinMichel/imageFeeder?style=plastic)
-![GitHub](https://img.shields.io/github/license/MarvinMichel/imageFeeder?style=plastic)
+[![Heroku App Status](http://heroku-shields.herokuapp.com/image-feeder-pwa)](https://image-feeder-pwa.herokuapp.com)
+![GitHub last commit (branch)](https://img.shields.io/github/last-commit/MarvinMichel/imageFeeder-PWA/master)
+![GitHub](https://img.shields.io/github/license/MarvinMichel/imageFeeder-PWA)
 
 ImageFeeder is an application build with the [Unsplash API](https://github.com/unsplash/unsplash-js). It shows you a feed of the latest photo's added to Unsplash and their corresponding photographers. You can view the photo's and their details, search for specific photo's trough keywords or just view random pictures. The application uses server-side rendering by NodeJS and Express. It's an Progressive Web Application and can be cached and installed locally.
 
@@ -10,12 +10,12 @@ ImageFeeder is an application build with the [Unsplash API](https://github.com/u
 ## Live Demo
 Check the live demo [here](https://image-feeder-pwa.herokuapp.com/)
 
-![qrcode_image-feeder-pwa herokuapp com](https://user-images.githubusercontent.com/25977763/113044763-544b1880-919e-11eb-8395-2ad2cd44228d.png)
+<img src="https://user-images.githubusercontent.com/25977763/113044763-544b1880-919e-11eb-8395-2ad2cd44228d.png" alt="QR-Code to application" width="100" />
 
 
 ## How to use?
-1. [Download](https://github.com/MarvinMichel/imageFeeder/archive/master.zip) or clone the repo
-2. Open the terminal and navigate into the projects' directory: `cd ./imageFeeder`
+1. [Download](https://github.com/MarvinMichel/imageFeeder-PWA/archive/refs/heads/master.zip) or clone the repo
+2. Open the terminal and navigate into the projects' directory: `cd ./imageFeeder-PWA`
 3. Install the dependencies by running `npm install`
 4. Start the server: `npm start`
 
